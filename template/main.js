@@ -256,7 +256,7 @@ require([
                             title: entry.title,
                             group: subGroup,
                             group: subGroup,
-                            hidden: false,
+                            hidden: true,
                             name: entry.name,
                             type: entry.type,
                             version: entry.version,
@@ -533,7 +533,7 @@ require([
                 $(paramName).removeClass('hide');
             } else {
                 $(this).parent().nextAll(paramName).first().removeClass('hide')
-                $(this).parent().nextAll(bodyName).first().addClass('hide');
+                $(this).parent().nextAll(bodyName).first().addClass('h');
             }
             $(this).prev('.sample-request-switch').prop('checked', true);
         });
