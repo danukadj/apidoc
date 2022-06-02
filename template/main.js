@@ -523,17 +523,17 @@ require([
                 $(selectName).val('undefined');
                 $(this).val('body-json');
                 $(paramName).removeClass('hide');
-                $(this).parent().nextAll(paramName).first().addClass('hide');
-                $(bodyName).addClass('hide');
+                $(this).parent().nextAll(paramName).first().addClass('abcde');
+                $(bodyName).addClass('abcde');
                 $(this).parent().nextAll(bodyName).first().removeClass('hide');
             } else if ($(this).val() == "body-form-data") {
                 $(selectName).val('undefined');
                 $(this).val('body-form-data');
-                $(bodyName).addClass('hide');
+                $(bodyName).addClass('abcde');
                 $(paramName).removeClass('hide');
             } else {
                 $(this).parent().nextAll(paramName).first().removeClass('hide')
-                $(this).parent().nextAll(bodyName).first().addClass('h');
+                $(this).parent().nextAll(bodyName).first().addClass('abcde');
             }
             $(this).prev('.sample-request-switch').prop('checked', true);
         });
@@ -551,9 +551,9 @@ require([
                 }
             }else {
                 if (select == 'body-json'){
-                    $(this).parent().nextAll(bodyName).first().addClass('hide');
+                    $(this).parent().nextAll(bodyName).first().addClass('abcde');
                 }else {
-                    $(this).parent().nextAll(paramName).first().addClass('hide');
+                    $(this).parent().nextAll(paramName).first().addClass('abcde');
                 }
             }
         });
@@ -563,9 +563,9 @@ require([
             $('.show-group').click(function () {
                 var apiGroup = '.' + $(this).attr('data-group') + '-group';
                 var apiGroupArticle = '.' + $(this).attr('data-group') + '-article';
-                $(".show-api-group").addClass('hide');
+                $(".show-api-group").addClass('abcde');
                 $(apiGroup).removeClass('hide');
-                $(".show-api-article").addClass('hide');
+                $(".show-api-article").addClass('abcde');
                 $(apiGroupArticle).removeClass('hide');
             });
 
@@ -573,9 +573,9 @@ require([
             $('.show-api').click(function () {
                 var apiName = '.' + $(this).attr('data-name') + '-article';
                 var apiGroup = '.' + $(this).attr('data-group') + '-group';
-                $(".show-api-group").addClass('hide');
+                $(".show-api-group").addClass('abcde');
                 $(apiGroup).removeClass('hide');
-                $(".show-api-article").addClass('hide');
+                $(".show-api-article").addClass('abcde');
                 $(apiName).removeClass('hide');
             });
         }
@@ -609,8 +609,8 @@ require([
         $('#version strong').html(selectedVersion);
 
         // hide all
-        $('article').addClass('hide');
-        $('#sidenav li:not(.nav-fixed)').addClass('hide');
+        $('article').addClass('abcde');
+        $('#sidenav li:not(.nav-fixed)').addClass('abcde');
 
         // show 1st equal or lower Version of each entry
         $('article[data-version]').each(function(index) {
