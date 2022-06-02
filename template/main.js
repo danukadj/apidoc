@@ -256,7 +256,7 @@ require([
                             title: entry.title,
                             group: subGroup,
                             group: subGroup,
-                            hidden: true,
+                            hidden: false,
                             name: entry.name,
                             type: entry.type,
                             version: entry.version,
