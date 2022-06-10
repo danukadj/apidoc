@@ -97,6 +97,8 @@ require([
     var apiByGroup = _.groupBy(api, function(entry) {
         return entry.group;
     });
+    console.log("apiByGroup");
+    console.log(apiByGroup);
 
 
 
@@ -107,6 +109,8 @@ require([
             return entry.subgroup;
         });
     });
+    console.log("apiByGroupAndSubGroup");
+    console.log(apiByGroupAndSubGroup);
 
     // grouped by group and name
     var apiByGroupAndName = {};
@@ -119,6 +123,8 @@ require([
         });
         apiByGroupAndName[index] = apiSubGroupNameArray;
     });
+    console.log("apiByGroupAndName");
+    console.log(apiByGroupAndName);
 
 
     //
@@ -159,6 +165,8 @@ require([
     });
     // api overwrite with ordered list
     api = newList;
+    console.log("api overwrite with ordered list");
+    console.log(api);
 
     //
     // Group- and Versionlists
@@ -173,11 +181,21 @@ require([
         if(!(entry.group in apiSubGroups)){
             apiSubGroups[entry.group] = {}
         }
+        console.log("group and version list - api each entry");
+        console.log(entry);
         apiGroups[entry.group] = 1;
         apiSubGroups[entry.group][entry.subgroup] = 1;
         apiGroupTitles[entry.group] = entry.groupTitle || entry.group;
         apiVersions[entry.version] = 1;
     });
+    console.log("apiGroups");
+    console.log(apiGroups);
+    console.log("apiSubGroups");
+    console.log(apiSubGroups);
+    console.log("apiGroupTitles");
+    console.log(apiGroupTitles);
+    console.log("apiVersions");
+    console.log(apiVersions);
 
     // sort groups
     apiGroups = Object.keys(apiGroups);
@@ -268,6 +286,13 @@ require([
             });
         });
     });
+    console.log("mainManuCount");
+    console.log(mainManuCount);
+    console.log("subMenuCount");
+    console.log(subMenuCount);
+    console.log("nav");
+    console.log(nav);
+
 
     /**
      * Add navigation items by analyzing the HTML content and searching for h1 and h2 tags
@@ -607,16 +632,18 @@ require([
 
         var selectedVersion = $(this).html();
         $('#version strong').html(selectedVersion);
+        console.log(selectedVersion);
 
         // hide all
         $('article').addClass('hide');
-        $('#sidenav li:not(.nav-fixed)').addClass('abcde');
+        $('#sidenav li:not(.nav-fixed)').addClass('hide');
 
         // show 1st equal or lower Version of each entry
         $('article[data-version]').each(function(index) {
             var group = $(this).data('group');
             var name = $(this).data('name');
             var version = $(this).data('version');
+            console.log($(this).data());
 
             if (semver.lte(version, selectedVersion)) {
                 if ($('article[data-group=\'' + group + '\'][data-name=\'' + name + '\']:visible').length === 0) {
@@ -630,15 +657,15 @@ require([
         });
 
         // show 1st equal or lower Version of each entry
-        $('article[data-version]').each(function(index) {
-            var group = $(this).data('group');
-            $('section#api-' + group).removeClass('hide');
-            if ($('section#api-' + group + ' article:visible').length === 0) {
-                $('section#api-' + group).addClass('hide');
-            } else {
-                $('section#api-' + group).removeClass('hide');
-            }
-        });
+        // $('article[data-version]').each(function(index) {
+        //     var group = $(this).data('group');
+        //     $('section#api-' + group).removeClass('hide');
+        //     if ($('section#api-' + group + ' article:visible').length === 0) {
+        //         $('section#api-' + group).addClass('hide');
+        //     } else {
+        //         $('section#api-' + group).removeClass('hide');
+        //     }
+        // });
 
         initDynamic();
         return;
